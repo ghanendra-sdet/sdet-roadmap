@@ -103,7 +103,7 @@ base path. Change how auth works once, and you're editing dozens of files.
 ## 🔍 Real Example: BaseAPI + CollectionAPI
 
 Straight from the real fintech framework
-([`Playwright-Starter-Framework`](https://github.com/ghanendra-sdet/Playwright-Starter-Framework)),
+([`playwright-starter-framework`](https://github.com/ghanendra-sdet/playwright-starter-framework)),
 here's `BaseAPI` — the shared layer every API client extends:
 
 ```typescript

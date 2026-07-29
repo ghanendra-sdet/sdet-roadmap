@@ -94,7 +94,7 @@ responsibility" idea from clean code, applied to test automation.
 ## 🔍 Real Example: A Reusable Table Component
 
 Here's the actual `Table` component from the real framework
-([`Playwright-Starter-Framework`](https://github.com/ghanendra-sdet/Playwright-Starter-Framework))
+([`playwright-starter-framework`](https://github.com/ghanendra-sdet/playwright-starter-framework))
 — notice it has zero idea what data it's displaying. It doesn't know about transactions or
 beneficiaries or merchants. It only knows "how to interact with an HTML table":
 

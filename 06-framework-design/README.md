@@ -71,7 +71,7 @@ graph TB
 
 This isn't an academic distinction. It's the actual pattern used in the real production framework
 this module is built from
-([`Playwright-Starter-Framework`](https://github.com/ghanendra-sdet/Playwright-Starter-Framework))
+([`playwright-starter-framework`](https://github.com/ghanendra-sdet/playwright-starter-framework))
 — POM for structure, Faker-driven data providers for realistic inputs, and API clients for setup
 and teardown. You've already learned all three pieces. This module is about wiring them together
 properly.

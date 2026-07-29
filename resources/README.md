@@ -146,7 +146,7 @@ Resources to help you prepare for QA and SDET interviews.
 - [Automation Exercise](https://automationexercise.com/) - Full e-commerce site
 - [OrangeHRM Demo](https://opensource-demo.orangehrmlive.com/) - HR Management System
 - [Automation Playground](https://ghanendra-sdet.github.io/automation-playground/) - Free, open-source practice sandbox (41 sections: forms, tables, alerts, modals, iframes, shadow DOM, drag & drop, flaky elements, and more) — [source](https://github.com/ghanendra-sdet/automation-playground)
-- [90-Day Playwright Master Plan Tracker](https://ghanendra-sdet.github.io/60-Days-Master-Plan-for-Playwright/) - An interactive, checkbox-driven study planner covering this same Playwright roadmap day by day — [source](https://github.com/ghanendra-sdet/60-Days-Master-Plan-for-Playwright)
+- [90-Day Playwright Master Plan Tracker](https://ghanendra-sdet.github.io/60-days-master-plan-for-playwright/) - An interactive, checkbox-driven study planner covering this same Playwright roadmap day by day — [source](https://github.com/ghanendra-sdet/60-days-master-plan-for-playwright)
 
 ---
 

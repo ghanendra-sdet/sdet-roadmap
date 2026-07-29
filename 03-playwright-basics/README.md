@@ -144,7 +144,7 @@ you got a **brittle test**, which is worse, because now nobody trusts your suite
 ### The real-world fallback pattern
 
 Here's something you won't find in most tutorials, straight from a production fintech framework
-([`Playwright-Starter-Framework`](https://github.com/ghanendra-sdet/Playwright-Starter-Framework))
+([`playwright-starter-framework`](https://github.com/ghanendra-sdet/playwright-starter-framework))
 — locators chained with `.or()` as a fallback chain, because real apps don't always have clean
 `data-testid` attributes on day one:
 
@@ -315,7 +315,7 @@ We'll go much deeper on this — base classes, component composition, fixtures �
 
 Let's connect this to a real, working automation framework instead of a toy demo. The following is
 straight from a production Playwright framework built for a fintech platform
-([`Playwright-Starter-Framework`](https://github.com/ghanendra-sdet/Playwright-Starter-Framework))
+([`playwright-starter-framework`](https://github.com/ghanendra-sdet/playwright-starter-framework))
 — a `BasePage` class that every page object in the framework extends:
 
 ```typescript
