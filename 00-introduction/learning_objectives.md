@@ -22,6 +22,7 @@
   - [API Testing](#-api-testing)
   - [Playwright Automation](#-playwright-automation)
   - [Framework Design](#-framework-design)
+  - [Tools & Environment](#-tools--environment)
   - [AI-Assisted Testing](#-ai-assisted-testing)
   - [Career Readiness](#-career-readiness)
 - [Proficiency Levels](#-proficiency-levels)
@@ -60,7 +61,8 @@ graph TB
     end
     
     subgraph Expert["🏆 Expert (Weeks 15-22)"]
-        D1[Framework<br/>Architecture] --> D2[CI/CD &<br/>DevOps]
+        D1[Framework<br/>Architecture] --> D1b[Docker & Test<br/>Environment Tooling]
+        D1b --> D2[CI/CD &<br/>DevOps]
         D2 --> D3[AI-Assisted<br/>Testing]
     end
     
@@ -271,6 +273,49 @@ graph TB
 
 ---
 
+### 🛠️ Tools & Environment
+
+**Target Proficiency:** Advanced
+
+#### Knowledge Objectives:
+- ✅ **Understand Why Local Setup Isn't Enough**
+  - Explain the gap between "one test runs on my machine" and "the whole team can run this identically, including in CI"
+  - Know the common environment-mismatch failure modes: browser version drift, missing system dependencies, OS-specific rendering quirks
+
+#### Practical Skills:
+- ✅ **Containerize a Test Suite with Docker**
+  - Write a `Dockerfile` against the official Playwright base image (`mcr.microsoft.com/playwright`)
+  - Build and run a full suite inside a disposable, identical container on any machine
+  - Mount `playwright-report` and other artifacts back to the host so results survive the container's exit
+
+- ✅ **Run Multi-Browser & Multi-Environment Matrices Efficiently**
+  - Run configured browser projects (Chromium/Firefox/WebKit) in parallel instead of sequentially
+  - Cap `--workers` for resource-constrained CI runners
+  - Shard a large suite across multiple CI machines with `--shard`
+
+- ✅ **Diagnose Failures with the Trace Viewer**
+  - Configure `trace: 'retain-on-failure'`, `screenshot: 'only-on-failure'`, and `video: 'retain-on-failure'`
+  - Open a failed CI run's trace with `npx playwright show-trace` and read the timeline, DOM snapshots, network requests, and console logs
+  - Diagnose CI-only, non-reproducible-locally failures from a trace instead of guessing with `console.log`
+
+- ✅ **Add Structured, Team-Ready Logging & Reporting**
+  - Wire up a structured logger (e.g. Winston) with separate console (colorized, live) and file (rotating, post-mortem) transports
+  - Control verbosity via a `LOG_LEVEL` environment variable — `debug` locally, `info` in CI
+  - Configure dual reporting: Playwright's own HTML report for developer debugging, Allure for stakeholder-facing trend dashboards
+
+- ✅ **Manage Secrets and Environments Safely**
+  - Keep real credentials out of git entirely (`.gitignore` for `.env*`, a shape-only `.env.example` committed instead)
+  - Understand that a leaked secret must be rotated, not just removed in a later commit — it stays in git history either way
+  - Pull secrets from the CI platform's own secret store (GitHub Actions secrets, Jenkins credentials) rather than a committed file
+
+- ✅ **Design npm Scripts as a Team Interface**
+  - Expose every supported way to run the suite (`smoke`, `sanity`, `regression`, `headed`, `debug`, per-module) as a documented `npm run` script
+  - Treat `package.json`'s `scripts` block as living documentation a new teammate can read instead of memorized CLI incantations
+
+**📂 Covered in:** [Module 07: Tools & Environment](../07-tools-and-environment/)
+
+---
+
 ### 🤖 AI-Assisted Testing
 
 **Target Proficiency:** Advanced
@@ -354,6 +399,7 @@ Track your expected proficiency for each skill area:
 | **API Testing (Automation)** | 🌱 Beginner | ⭐⭐⭐⭐ Expert | 02, 04 |
 | **Playwright UI Automation** | 🌱 Beginner | ⭐⭐⭐⭐ Expert | 03, 05 |
 | **Framework Design** | 🌱 Beginner | ⭐⭐⭐⭐ Expert | 06 |
+| **Docker & Test Environment Tooling** | 🌱 Beginner | ⭐⭐⭐ Advanced | 07 |
 | **JavaScript/TypeScript** | 🌱 Beginner | ⭐⭐⭐ Advanced | All |
 | **Git & Version Control** | 🌱 Beginner | ⭐⭐⭐ Advanced | 08 |
 | **CI/CD** | 🌱 Beginner | ⭐⭐ Intermediate | 08 |
@@ -469,6 +515,6 @@ By the end of this roadmap, your portfolio will include:
 
 **[⬆ Back to Top](#-learning-objectives)**
 
-*Last Updated: July 2026*
+*Last Updated: September 2026*
 
 </div>
