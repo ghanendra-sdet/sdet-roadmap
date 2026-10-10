@@ -1,10 +1,14 @@
 # ☕ REST-assured API Testing Example
 
-![Java](https://img.shields.io/badge/Java-11+-blue.svg)
-![REST-assured](https://img.shields.io/badge/REST--assured-5.3.2-green.svg)
-![Last Updated](https://img.shields.io/badge/last%20updated-Feb%202026-orange.svg)
+![Java](https://img.shields.io/badge/Java-17+-blue.svg)
+![REST-assured](https://img.shields.io/badge/REST--assured-6.1.0-green.svg)
+![Last Updated](https://img.shields.io/badge/last%20updated-Oct%202026-orange.svg)
 
 > **Learn Java-based API testing with REST-assured framework**
+>
+> REST-assured 6.x requires **Java 17+** (up from 11+ on the 5.x line) — it now ships on Groovy 5
+> and Jakarta-based APIs. If you're stuck on Java 11 for another reason, pin to the 5.x line
+> instead (`5.5.x` is the last series that supports it), but new projects should start on 6.x.
 
 ---
 
@@ -46,7 +50,7 @@
     <dependency>
         <groupId>io.rest-assured</groupId>
         <artifactId>rest-assured</artifactId>
-        <version>5.3.2</version>
+        <version>6.1.0</version>
         <scope>test</scope>
     </dependency>
     
@@ -54,7 +58,7 @@
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
-        <version>7.8.0</version>
+        <version>7.12.0</version>
         <scope>test</scope>
     </dependency>
     
@@ -62,7 +66,7 @@
     <dependency>
         <groupId>io.rest-assured</groupId>
         <artifactId>json-schema-validator</artifactId>
-        <version>5.3.2</version>
+        <version>6.1.0</version>
         <scope>test</scope>
     </dependency>
 </dependencies>

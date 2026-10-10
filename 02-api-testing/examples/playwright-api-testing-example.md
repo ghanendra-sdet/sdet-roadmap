@@ -1,8 +1,8 @@
 # 🎭 Playwright API Testing Example
 
-![Playwright](https://img.shields.io/badge/Playwright-1.40+-green.svg)
-![Node.js](https://img.shields.io/badge/Node.js-18+-blue.svg)
-![Last Updated](https://img.shields.io/badge/last%20updated-Feb%202026-orange.svg)
+![Playwright](https://img.shields.io/badge/Playwright-1.55+-green.svg)
+![Node.js](https://img.shields.io/badge/Node.js-20+-blue.svg)
+![Last Updated](https://img.shields.io/badge/last%20updated-Oct%202026-orange.svg)
 
 > **Learn API testing with Playwright's powerful APIRequestContext**
 
@@ -78,7 +78,7 @@ test.describe('JSONPlaceholder API Tests', () => {
   test('GET - Fetch all posts', async ({ request }) => {
     const response = await request.get('/posts');
     
-    expect(response.ok()).toBeTruthy();
+    await expect(response).toBeOK();
     expect(response.status()).toBe(200);
     
     const posts = await response.json();
@@ -92,6 +92,12 @@ test.describe('JSONPlaceholder API Tests', () => {
 
 ## 🔵 GET Request Example
 
+> **Why `await expect(response).toBeOK()` instead of `expect(response.ok()).toBeTruthy()`?**
+> `toBeOK()` is a real Playwright matcher (`APIResponseAssertions`), not a plain boolean check —
+> when it fails, it prints the actual status, headers, and body in the error output instead of
+> just "expected true, got false." Reach for `response.ok()` directly only when you need the raw
+> boolean for your own conditional logic, not for an assertion.
+
 ```typescript
 test.describe('GET Requests', () => {
   
@@ -99,7 +105,7 @@ test.describe('GET Requests', () => {
     const response = await request.get('/posts');
     
     // Status validation
-    expect(response.ok()).toBeTruthy();
+    await expect(response).toBeOK();
     expect(response.status()).toBe(200);
     
     // Headers validation
@@ -138,7 +144,7 @@ test.describe('GET Requests', () => {
       }
     });
     
-    expect(response.ok()).toBeTruthy();
+    await expect(response).toBeOK();
     
     const posts = await response.json();
     posts.forEach((post: any) => {
@@ -248,7 +254,7 @@ test.describe('PUT Requests', () => {
       }
     });
     
-    expect(response.ok()).toBeTruthy();
+    await expect(response).toBeOK();
     
     const post = await response.json();
     expect(post.title).toBe('Partially Updated');
@@ -273,7 +279,7 @@ test.describe('DELETE Requests', () => {
   test('Delete and verify', async ({ request }) => {
     // Delete post
     const deleteResponse = await request.delete('/posts/1');
-    expect(deleteResponse.ok()).toBeTruthy();
+    await expect(deleteResponse).toBeOK();
     
     // Verify deletion (in real API, should return 404)
     // const getResponse = await request.get('/posts/1');
@@ -297,7 +303,7 @@ test('API with Bearer token', async ({ request }) => {
     }
   });
   
-  expect(response.ok()).toBeTruthy();
+  await expect(response).toBeOK();
 });
 ```
 
@@ -313,7 +319,7 @@ test('API with Basic Auth', async ({ playwright }) => {
   });
   
   const response = await context.get('/secure-endpoint');
-  expect(response.ok()).toBeTruthy();
+  await expect(response).toBeOK();
 });
 ```
 
@@ -327,7 +333,7 @@ test('API with API Key', async ({ request }) => {
     }
   });
   
-  expect(response.ok()).toBeTruthy();
+  await expect(response).toBeOK();
 });
 ```
 
@@ -342,7 +348,7 @@ test('Complete API validation', async ({ request }) => {
   const response = await request.get('/posts/1');
   
   // Status code
-  expect(response.ok()).toBeTruthy();
+  await expect(response).toBeOK();
   expect(response.status()).toBe(200);
   expect(response.statusText()).toBe('OK');
   
@@ -425,7 +431,7 @@ test.describe('With shared context', () => {
   
   test('Use shared context', async () => {
     const response = await apiContext.get('/posts/1');
-    expect(response.ok()).toBeTruthy();
+    await expect(response).toBeOK();
   });
 });
 ```

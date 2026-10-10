@@ -1,7 +1,7 @@
 # 📮 Postman API Testing Example
 
-![Postman](https://img.shields.io/badge/Postman-v11.0-orange.svg)
-![Last Updated](https://img.shields.io/badge/last%20updated-Feb%202026-orange.svg)
+![Postman](https://img.shields.io/badge/Postman-v12+-orange.svg)
+![Last Updated](https://img.shields.io/badge/last%20updated-Oct%202026-orange.svg)
 
 > **Learn API testing with Postman through practical examples**
 
